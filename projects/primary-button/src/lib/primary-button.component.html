@@ -1,0 +1,5 @@
+<div class="button-container" [ngStyle]="{'background-color': backgroundColor }">
+  <button (click)="onClick()" [disabled]="disabled">{{text}}</button>
+
+  <button (click)="onCancel()">Cancel</button>
+</div>

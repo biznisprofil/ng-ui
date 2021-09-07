@@ -1,0 +1,28 @@
+<div class="list-item {{ task?.state }}">
+  <label class="checkbox">
+    <input
+      type="checkbox"
+      [defaultChecked]="task?.state === 'TASK_ARCHIVED'"
+      name="checked"
+    />
+    <span class="checkbox-custom" (click)="onArchive(task.id)"></span>
+  </label>
+  <div class="title">
+    <input
+      type="text"
+      [value]="task.title"
+      placeholder="Input title"
+      (keydown.enter)="onKeyDownEvent($event)"
+    />
+  </div>
+  <div class="actions">
+    <a *ngIf="task?.state !== 'TASK_ARCHIVED'" (click)="onPin(task.id)">
+      <span class="icon-star"></span>
+    </a>
+  </div>
+</div>
+<div *ngFor="let item of tasks; index as i;">
+  {{item.title}} {{item.state}}
+</div>
+<ui-primary-button [backgroundColor]="'#ffd11a'" (onClicked)="onClick($event)" [disabled]="false" [text]="'button'"></ui-primary-button>
+
