@@ -24,5 +24,6 @@
 <div *ngFor="let item of tasks; index as i;">
   {{item.title}} {{item.state}}
 </div>
+<app-counter-component [counter]="counter" (componentClick)="handleOnClick()"></app-counter-component>
 <ui-primary-button [backgroundColor]="'#ffd11a'" (onClicked)="onClick($event)" [disabled]="false" [text]="'button'"></ui-primary-button>
 

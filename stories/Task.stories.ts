@@ -2,6 +2,7 @@ import { Meta, Story, moduleMetadata } from '@storybook/angular';
 
 import { CommonModule } from '@angular/common';
 import { PrimaryButtonModule } from 'projects/primary-button/src/public-api';
+import { ReactComponentWrapperComponent } from 'projects/react-components/counter-component/ReactComponentWrapper';
 import { TaskComponent } from 'projects/web-todo-app/src/app/components/task/task.component';
 import { action } from '@storybook/addon-actions';
 
@@ -9,7 +10,7 @@ export default {
   component: TaskComponent,
   decorators: [
     moduleMetadata({
-      declarations: [TaskComponent],
+      declarations: [TaskComponent, ReactComponentWrapperComponent],
       imports: [CommonModule, PrimaryButtonModule],
     }),
   ],

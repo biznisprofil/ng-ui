@@ -2,6 +2,38 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "IMyComponentProps",
+            "id": "interface-IMyComponentProps-6d25445eefd1248f0aca97892c3ce508",
+            "file": "projects/react-components/counter-component/CounterComponent.tsx",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import './CounterComponent.scss';\r\n\r\nimport * as React from 'react';\r\n\r\nimport { FunctionComponent } from 'react';\r\n\r\nexport interface IMyComponentProps {\r\n  counter: number;\r\n  onClick?: () => void;\r\n}\r\n\r\nexport const CounterComponent: FunctionComponent<IMyComponentProps> = (props: IMyComponentProps) => {\r\n\r\n\r\n\r\n  const {counter: propsCounter, onClick} = props;\r\n\r\n  const handleClick = () => {\r\n    if (onClick) {\r\n      onClick();\r\n    }\r\n  };\r\n\r\n  return <div className={`my-graph-component`}>\r\n    <div className={'comp-props'}>Props counter: {propsCounter}\r\n      <span onClick={handleClick}\r\n            className={'increase-button'}>remove last one: </span>\r\n    </div>\r\n  </div>;\r\n};\r\n",
+            "properties": [
+                {
+                    "name": "counter",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "onClick",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "function",
+                    "optional": true,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 163,
+            "methods": []
+        },
+        {
             "name": "Task",
             "id": "interface-Task-0543044d140f9347f8258d76e0d55088",
             "file": "projects/web-todo-app/src/app/components/task/task.model.ts",
@@ -120,11 +152,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<app-task [task]=\"title\"></app-task>\n"
+            "templateData": "<app-task></app-task>\n"
         },
         {
             "name": "PrimaryButtonComponent",
-            "id": "component-PrimaryButtonComponent-010d8bd4ab797fbbc0586ee391fba0be",
+            "id": "component-PrimaryButtonComponent-4777eb2abf24d49e4ed30201ee31e9a3",
             "file": "projects/primary-button/src/lib/primary-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -186,6 +218,16 @@
                     "deprecationMessage": ""
                 },
                 {
+                    "name": "onCancel",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
                     "name": "onClick",
                     "args": [],
                     "optional": false,
@@ -203,11 +245,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n@Component({\n  selector: 'ui-primary-button',\n  templateUrl: './primary-button.component.html',\n  styleUrls: ['./primary-button.component.scss']\n})\nexport class PrimaryButtonComponent implements OnInit {\n\n  @Input() text: string;\n  @Input() backgroundColor?: string;\n  @Input() disabled: boolean;\n\n  @Output() onClicked = new EventEmitter<string>();\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  onClick() {\n    alert('hello');\n    this.onClicked.emit('hello');\n  }\n\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n@Component({\n  selector: 'ui-primary-button',\n  templateUrl: './primary-button.component.html',\n  styleUrls: ['./primary-button.component.scss']\n})\nexport class PrimaryButtonComponent implements OnInit {\n\n  @Input() text: string;\n  @Input() backgroundColor?: string;\n  @Input() disabled: boolean;\n\n  @Output() onClicked = new EventEmitter<string>();\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  onClick() {\n    this.onClicked.emit('button cliked');\n  }\n\n  onCancel() {\n    alert('Cancel event!');\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".button-container {\r\n  padding: 10px;\r\n}\r\n",
+                    "data": ".button-container {\r\n  padding: 10px;\r\n  button {\r\n    margin-left: 10px;\r\n  }\r\n}\r\n",
                     "styleUrl": "./primary-button.component.scss"
                 }
             ],
@@ -223,11 +265,172 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"button-container\" [ngStyle]=\"{'background-color': backgroundColor }\">\r\n  <button [disabled]=\"disabled\">{{text}}</button>\r\n</div>\r\n"
+            "templateData": "<div class=\"button-container\" [ngStyle]=\"{'background-color': backgroundColor }\">\r\n  <button (click)=\"onClick()\" [disabled]=\"disabled\">{{text}}</button>\r\n\r\n  <button (click)=\"onCancel()\">Cancel</button>\r\n</div>\r\n"
+        },
+        {
+            "name": "ReactComponentWrapperComponent",
+            "id": "component-ReactComponentWrapperComponent-863163bbd6245db1e68db7dd311b4f3a",
+            "file": "projects/react-components/counter-component/ReactComponentWrapper.tsx",
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-counter-component",
+            "styleUrls": [
+                "./CounterComponent.scss"
+            ],
+            "styles": [],
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "counter",
+                    "defaultValue": "10",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "number"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "componentClick",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "containerRef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef",
+                    "optional": false,
+                    "description": "",
+                    "line": 29,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "containerElementName, {static: false}"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "handleDivClicked",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        122
+                    ]
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 49,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 53,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "render",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 57,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        120
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import * as React from 'react';\r\nimport * as ReactDOM from 'react-dom';\r\n\r\nimport {\r\n  AfterViewInit,\r\n  Component,\r\n  ElementRef,\r\n  EventEmitter,\r\n  Input,\r\n  OnChanges,\r\n  OnDestroy,\r\n  Output,\r\n  SimpleChanges,\r\n  ViewChild,\r\n  ViewEncapsulation\r\n} from '@angular/core';\r\n\r\nimport { CounterComponent } from './CounterComponent';\r\n\r\nconst containerElementName = 'counterReactComponentContainer';\r\n\r\n@Component({\r\n  selector: 'app-counter-component',\r\n  template: `<span #${containerElementName}></span>`,\r\n  styleUrls: ['./CounterComponent.scss'],\r\n  encapsulation: ViewEncapsulation.None,\r\n})\r\nexport class ReactComponentWrapperComponent implements OnChanges, OnDestroy, AfterViewInit {\r\n  @ViewChild(containerElementName, {static: false}) containerRef: ElementRef;\r\n\r\n  @Input() public counter = 10;\r\n  @Output() public componentClick = new EventEmitter<void>();\r\n\r\n  constructor() {\r\n    this.handleDivClicked = this.handleDivClicked.bind(this);\r\n  }\r\n\r\n  public handleDivClicked() {\r\n    if (this.componentClick) {\r\n      this.componentClick.emit();\r\n      this.render();\r\n    }\r\n  }\r\n\r\n  ngOnChanges(changes: SimpleChanges): void {\r\n    this.render();\r\n  }\r\n\r\n  ngAfterViewInit() {\r\n    this.render();\r\n  }\r\n\r\n  ngOnDestroy() {\r\n    ReactDOM.unmountComponentAtNode(this.containerRef.nativeElement);\r\n  }\r\n\r\n  private render() {\r\n    const {counter} = this;\r\n\r\n    ReactDOM.render(<div className={'i-am-classy'}>\r\n      <CounterComponent counter={counter} onClick={this.handleDivClicked}/>\r\n    </div>, this.containerRef.nativeElement);\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "$border-radius: 4px;\r\n\r\n@mixin with-border($radius: $border-radius, $border-color: black) {\r\n  border: 1px solid $border-color;\r\n  border-radius: $radius;\r\n}\r\n\r\n.my-graph-component {\r\n  @include with-border($border-radius, blue);\r\n\r\n  filter: drop-shadow(2px 4px 6px black);\r\n  background-color: #1eb4d1;\r\n  border: 1px solid #198aa2;\r\n  display: inline-block;\r\n  user-select: none;\r\n  padding: 20px;\r\n\r\n  .comp-props {\r\n    color: white;\r\n\r\n    .increase-button {\r\n      @include with-border($border-radius, #3e3e3e);\r\n      background-color: white;\r\n      margin-left: 40px;\r\n      padding: 4px 6px;\r\n      cursor: pointer;\r\n      color: black;\r\n\r\n      &:hover {\r\n        filter: drop-shadow(2px 4px 6px black);\r\n      }\r\n    }\r\n  }\r\n\r\n  .comp-state {\r\n    color: yellow;\r\n    margin-top: 20px;\r\n  }\r\n}\r\n",
+                    "styleUrl": "./CounterComponent.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 32
+            },
+            "implements": [
+                "OnChanges",
+                "OnDestroy",
+                "AfterViewInit"
+            ]
         },
         {
             "name": "TaskComponent",
-            "id": "component-TaskComponent-82426250a59da51767d57e5fa7bb9a05",
+            "id": "component-TaskComponent-e63b58dacf69b2da998239a6581d0e97",
             "file": "projects/web-todo-app/src/app/components/task/task.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -246,6 +449,7 @@
             "inputsClass": [
                 {
                     "name": "task",
+                    "defaultValue": "{id: '1', title: 'default', state: 'TASK_DEFAULT'}",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 11,
@@ -258,7 +462,7 @@
                     "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 21,
                     "type": "EventEmitter"
                 },
                 {
@@ -266,14 +470,153 @@
                     "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 18,
                     "type": "EventEmitter"
                 }
             ],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "counter",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "modifierKind": [
+                        122
+                    ]
+                },
+                {
+                    "name": "tasks",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Task[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
             "methodsClass": [
                 {
+                    "name": "handleOnClick",
+                    "args": [
+                        {
+                            "name": "count",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        122
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "count",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "onArchive",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onClick",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onKeyDownEvent",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onPin",
                     "args": [
                         {
                             "name": "id",
@@ -299,62 +642,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "name": "onClick",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "string",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 27,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "string",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "onPin",
-                    "args": [
-                        {
-                            "name": "id",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 19,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "id",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
                 }
             ],
             "deprecated": false,
@@ -364,7 +651,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\n\r\nimport { Task } from './task.model';\r\n\r\n@Component({\r\n  selector: 'app-task',\r\n  templateUrl: './task.component.html',\r\n  styleUrls: ['./task.component.scss'],\r\n})\r\nexport class TaskComponent {\r\n  @Input() task: Task;\r\n\r\n  @Output()\r\n  onPinTask = new EventEmitter<Event>();\r\n\r\n  @Output()\r\n  onArchiveTask = new EventEmitter<Event>();\r\n\r\n  onPin(id: any) {\r\n    this.onPinTask.emit(id);\r\n  }\r\n\r\n  onArchive(id: any) {\r\n    this.onArchiveTask.emit(id);\r\n  }\r\n\r\n  onClick(event:string) {\r\n    console.log(event)\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\n\r\nimport { Task } from './task.model';\r\n\r\n@Component({\r\n  selector: 'app-task',\r\n  templateUrl: './task.component.html',\r\n  styleUrls: ['./task.component.scss'],\r\n})\r\nexport class TaskComponent {\r\n  @Input() task: Task = {id: '1', title: 'default', state: 'TASK_DEFAULT'}\r\n\r\n  public counter = 0;\r\n\r\n  tasks:Task[] = []\r\n\r\n  @Output()\r\n  onPinTask = new EventEmitter<Event>();\r\n\r\n  @Output()\r\n  onArchiveTask = new EventEmitter<Event>();\r\n\r\n  onPin(id: any) {\r\n    this.onPinTask.emit(id);\r\n  }\r\n\r\n  onArchive(id: any) {\r\n    this.onArchiveTask.emit(id);\r\n  }\r\n\r\n  public handleOnClick(count) {\r\n    console.log(count)\r\n    this.tasks.pop();\r\n    this.counter = this.tasks.length;\r\n  }\r\n\r\n  onClick(event:string) {\r\n    const task = {id: String(Math.random()), title: event, state: 'TASK_PINNED'}\r\n    this.tasks.push(task)\r\n    this.counter = this.tasks.length;\r\n  }\r\n\r\n  onKeyDownEvent(event) {\r\n    const task = {id: String(Math.random()), title: event.target.value, state: 'TASK_DEFAULT'}\r\n    this.tasks.push(task)\r\n    this.counter = this.tasks.length;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -373,19 +660,19 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"list-item {{ task?.state }}\">\r\n  <label class=\"checkbox\">\r\n    <input\r\n      type=\"checkbox\"\r\n      [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\r\n      name=\"checked\"\r\n    />\r\n    <span class=\"checkbox-custom\" (click)=\"onArchive(task.id)\"></span>\r\n  </label>\r\n  <div class=\"title\">\r\n    <input\r\n      type=\"text\"\r\n      [value]=\"task?.title\"\r\n      placeholder=\"Input title\"\r\n    />\r\n  </div>\r\n  <div class=\"actions\">\r\n    <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\r\n      <span class=\"icon-star\"></span>\r\n    </a>\r\n  </div>\r\n</div>\r\n<ui-primary-button (onClicked)=\"onClick($event)\" [disabled]=\"false\" [text]=\"'input task'\"></ui-primary-button>\r\n\r\n"
+            "templateData": "<div class=\"list-item {{ task?.state }}\">\r\n  <label class=\"checkbox\">\r\n    <input\r\n      type=\"checkbox\"\r\n      [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\r\n      name=\"checked\"\r\n    />\r\n    <span class=\"checkbox-custom\" (click)=\"onArchive(task.id)\"></span>\r\n  </label>\r\n  <div class=\"title\">\r\n    <input\r\n      type=\"text\"\r\n      [value]=\"task.title\"\r\n      placeholder=\"Input title\"\r\n      (keydown.enter)=\"onKeyDownEvent($event)\"\r\n    />\r\n  </div>\r\n  <div class=\"actions\">\r\n    <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\r\n      <span class=\"icon-star\"></span>\r\n    </a>\r\n  </div>\r\n</div>\r\n<div *ngFor=\"let item of tasks; index as i;\">\r\n  {{item.title}} {{item.state}}\r\n</div>\r\n<p>Number of tasks:</p>\r\n<app-counter-component [counter]=\"counter\" (componentClick)=\"handleOnClick($event)\"></app-counter-component>\r\n<ui-primary-button [backgroundColor]=\"'#ffd11a'\" (onClicked)=\"onClick($event)\" [disabled]=\"false\" [text]=\"'button'\"></ui-primary-button>\r\n\r\n"
         }
     ],
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-e14fc3fff1c8040769d044b8029312da",
+            "id": "module-AppModule-13d7b39e76911e19d42c878cf8582128",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/web-todo-app/src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { AppComponent } from './app.component';\nimport { AppRoutingModule } from './app-routing.module';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { PrimaryButtonModule } from 'projects/primary-button/src/lib/primary-button.module';\nimport { TaskComponent } from './components/task/task.component';\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    TaskComponent\n  ],\n  imports: [\n    BrowserModule,\n    PrimaryButtonModule,\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { AppComponent } from './app.component';\nimport { AppRoutingModule } from './app-routing.module';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { FormsModule } from '@angular/forms';\nimport { NgModule } from '@angular/core';\nimport { PrimaryButtonModule } from 'projects/primary-button/src/lib/primary-button.module';\nimport { ReactComponentWrapperComponent } from 'projects/react-components/counter-component/ReactComponentWrapper';\nimport { TaskComponent } from './components/task/task.component';\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    TaskComponent,\n    ReactComponentWrapperComponent,\n  ],\n  imports: [\n    BrowserModule,\n    FormsModule,\n    PrimaryButtonModule,\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -396,6 +683,9 @@
                     "elements": [
                         {
                             "name": "AppComponent"
+                        },
+                        {
+                            "name": "ReactComponentWrapperComponent"
                         },
                         {
                             "name": "TaskComponent"
@@ -469,13 +759,13 @@
         },
         {
             "name": "PrimaryButtonModule",
-            "id": "module-PrimaryButtonModule-1c3da47a7a5324a272748c98bfa07fb1",
+            "id": "module-PrimaryButtonModule-cb05f7201acff7f8532f5d8b9023c15e",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/primary-button/src/lib/primary-button.module.ts",
             "methods": [],
-            "sourceCode": "import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';\n\nimport { CommonModule } from '@angular/common';\nimport { PrimaryButtonComponent } from './primary-button.component';\n\n@NgModule({\n  declarations: [PrimaryButtonComponent],\n  imports: [\n    CommonModule\n  ],\n  schemas: [CUSTOM_ELEMENTS_SCHEMA],\n  exports: [PrimaryButtonComponent]\n})\nexport class PrimaryButtonModule { }\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { NgModule } from '@angular/core';\nimport { PrimaryButtonComponent } from './primary-button.component';\n\n@NgModule({\n  declarations: [PrimaryButtonComponent],\n  imports: [\n    CommonModule\n  ],\n  exports: [PrimaryButtonComponent]\n})\nexport class PrimaryButtonModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -535,14 +825,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "context",
+                "name": "containerElementName",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/web-todo-app/src/test.ts",
+                "file": "projects/react-components/counter-component/ReactComponentWrapper.tsx",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                "type": "string",
+                "defaultValue": "'counterReactComponentContainer'"
             },
             {
                 "name": "context",
@@ -553,6 +843,26 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/web-todo-app/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "CounterComponent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/react-components/counter-component/CounterComponent.tsx",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "FunctionComponent<IMyComponentProps>",
+                "defaultValue": "(props: IMyComponentProps) => {\r\n\r\n\r\n\r\n  const {counter: propsCounter, onClick} = props;\r\n\r\n  const handleClick = () => {\r\n    if (onClick) {\r\n      onClick();\r\n    }\r\n  };\r\n\r\n  return <div className={`my-graph-component`}>\r\n    <div className={'comp-props'}>Props counter: {propsCounter}\r\n      <span onClick={handleClick}\r\n            className={'increase-button'}>remove last one: </span>\r\n    </div>\r\n  </div>;\r\n}"
             },
             {
                 "name": "Default",
@@ -608,7 +918,7 @@
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/web-todo-app/src/test.ts",
+                "file": "projects/primary-button/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "literal type"
@@ -617,7 +927,7 @@
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/primary-button/src/test.ts",
+                "file": "projects/web-todo-app/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "literal type"
@@ -699,25 +1009,16 @@
                     "defaultValue": "args => ({\r\n  props: {\r\n    ...args,\r\n    onPinTask: actionsData.onPinTask,\r\n    onArchiveTask: actionsData.onArchiveTask,\r\n  },\r\n})"
                 }
             ],
-            "projects/web-todo-app/src/test.ts": [
+            "projects/react-components/counter-component/ReactComponentWrapper.tsx": [
                 {
-                    "name": "context",
+                    "name": "containerElementName",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/web-todo-app/src/test.ts",
+                    "file": "projects/react-components/counter-component/ReactComponentWrapper.tsx",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-                },
-                {
-                    "name": "require",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/web-todo-app/src/test.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "literal type"
+                    "type": "string",
+                    "defaultValue": "'counterReactComponentContainer'"
                 }
             ],
             "projects/primary-button/src/test.ts": [
@@ -739,6 +1040,39 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "literal type"
+                }
+            ],
+            "projects/web-todo-app/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/web-todo-app/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/web-todo-app/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
+            "projects/react-components/counter-component/CounterComponent.tsx": [
+                {
+                    "name": "CounterComponent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/react-components/counter-component/CounterComponent.tsx",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FunctionComponent<IMyComponentProps>",
+                    "defaultValue": "(props: IMyComponentProps) => {\r\n\r\n\r\n\r\n  const {counter: propsCounter, onClick} = props;\r\n\r\n  const handleClick = () => {\r\n    if (onClick) {\r\n      onClick();\r\n    }\r\n  };\r\n\r\n  return <div className={`my-graph-component`}>\r\n    <div className={'comp-props'}>Props counter: {propsCounter}\r\n      <span onClick={handleClick}\r\n            className={'increase-button'}>remove last one: </span>\r\n    </div>\r\n  </div>;\r\n}"
                 }
             ],
             "projects/web-todo-app/src/environments/environment.prod.ts": [
@@ -816,7 +1150,7 @@
                 "linktype": "component",
                 "name": "PrimaryButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -849,6 +1183,44 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/react-components/counter-component/CounterComponent.tsx",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "IMyComponentProps",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/react-components/counter-component/CounterComponent.tsx",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CounterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/react-components/counter-component/ReactComponentWrapper.tsx",
+                "type": "component",
+                "linktype": "component",
+                "name": "ReactComponentWrapperComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/react-components/counter-component/ReactComponentWrapper.tsx",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "containerElementName",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/web-todo-app/src/app/app.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -863,7 +1235,7 @@
                 "linktype": "component",
                 "name": "TaskComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
