@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "IMyComponentProps",
-            "id": "interface-IMyComponentProps-6d25445eefd1248f0aca97892c3ce508",
+            "id": "interface-IMyComponentProps-e9d6e0d38ee762fe77631359c646c6cc",
             "file": "projects/react-components/counter-component/CounterComponent.tsx",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import './CounterComponent.scss';\r\n\r\nimport * as React from 'react';\r\n\r\nimport { FunctionComponent } from 'react';\r\n\r\nexport interface IMyComponentProps {\r\n  counter: number;\r\n  onClick?: () => void;\r\n}\r\n\r\nexport const CounterComponent: FunctionComponent<IMyComponentProps> = (props: IMyComponentProps) => {\r\n\r\n\r\n\r\n  const {counter: propsCounter, onClick} = props;\r\n\r\n  const handleClick = () => {\r\n    if (onClick) {\r\n      onClick();\r\n    }\r\n  };\r\n\r\n  return <div className={`my-graph-component`}>\r\n    <div className={'comp-props'}>Props counter: {propsCounter}\r\n      <span onClick={handleClick}\r\n            className={'increase-button'}>remove last one: </span>\r\n    </div>\r\n  </div>;\r\n};\r\n",
+            "sourceCode": "import './CounterComponent.scss';\r\n\r\nimport * as React from 'react';\r\n\r\nimport { FunctionComponent } from 'react';\r\n\r\nexport interface IMyComponentProps {\r\n  counter: number;\r\n  onClick?: () => void;\r\n}\r\n\r\nexport const CounterComponent: FunctionComponent<IMyComponentProps> = (props: IMyComponentProps) => {\r\n\r\n  const {counter: propsCounter, onClick} = props;\r\n\r\n  const handleClick = () => {\r\n    if (onClick) {\r\n      onClick();\r\n    }\r\n  };\r\n\r\n  return <div className={`counter-component`}>\r\n    <div className={'comp-props'}>Tasks counter: {propsCounter}\r\n      <span onClick={handleClick}\r\n            className={'increase-button'}>Remove last one</span>\r\n    </div>\r\n  </div>;\r\n};\r\n",
             "properties": [
                 {
                     "name": "counter",
@@ -76,6 +76,27 @@
         }
     ],
     "injectables": [
+        {
+            "name": "CalendarService",
+            "id": "injectable-CalendarService-27cc5956080907da86f07672eb1e9beb",
+            "file": "projects/calendar/src/lib/calendar.service.ts",
+            "properties": [],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class CalendarService {\n\n  constructor() { }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6
+            },
+            "type": "injectable"
+        },
         {
             "name": "PrimaryButtonService",
             "id": "injectable-PrimaryButtonService-dc7be47bcbfc402d4767c9a168bbe054",
@@ -153,6 +174,64 @@
             ],
             "stylesData": "",
             "templateData": "<app-task></app-task>\n"
+        },
+        {
+            "name": "CalendarComponent",
+            "id": "component-CalendarComponent-29a1136178059bbefe14eabf2ffd2052",
+            "file": "projects/calendar/src/lib/calendar.component.ts",
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ui-calendar",
+            "styleUrls": [
+                "./calendar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./calendar.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "datePickerValue",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  Component,\n  Input,\n  ViewEncapsulation,\n} from '@angular/core'\n\n@Component({\n  selector: 'ui-calendar',\n  templateUrl: './calendar.component.html',\n  styleUrls: ['./calendar.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class CalendarComponent {\n\n  @Input() datePickerValue: string\n\n  constructor(\n  ) {}\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '../../../../node_modules/@syncfusion/ej2-buttons/styles/fabric.css';\r\n@import '../../../../node_modules/@syncfusion/ej2-calendars/styles/fabric.css';\r\n\r\n.data-picker-container {\r\n  .predefined-fields-container {\r\n    width: 100%;\r\n    border: none;\r\n    z-index: 1000;\r\n    cursor: pointer;\r\n    color: blue;\r\n    text-decoration: underline;\r\n    padding-left: 15px;\r\n    img {\r\n      margin-right: 5px;\r\n    }\r\n    .e-float-input .e-clear-icon::before,\r\n    .e-float-input.e-control-wrapper .e-clear-icon::before,\r\n    .e-input-group .e-clear-icon::before,\r\n    .e-input-group.e-control-wrapper .e-clear-icon::before {\r\n      font-size: 12px;\r\n    }\r\n  }\r\n  .e-calendar,\r\n  .e-lib .e-keyboard {\r\n    max-width: 100%;\r\n  }\r\n  .calculatedDate {\r\n    float: right;\r\n    color: silver;\r\n    text-transform: capitalize;\r\n  }\r\n}\r\n.data-picker-container.e-datepicker.e-popup-wrapper {\r\n  top: 349.5px;\r\n  position: fixed;\r\n  z-index: 1004;\r\n  width: 20%;\r\n  height: auto;\r\n  background-color: white;\r\n  .calendar-predefined-fields {\r\n    padding: 0 17px 17px 17px;\r\n  }\r\n}\r\n",
+                    "styleUrl": "./calendar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 15
+            },
+            "templateData": "<div class=\"data-picker-container\">\r\n  <h1>Datepicker</h1>\r\n  <ejs-calendar></ejs-calendar>\r\n</div>\r\n"
         },
         {
             "name": "PrimaryButtonComponent",
@@ -265,11 +344,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"button-container\" [ngStyle]=\"{'background-color': backgroundColor }\">\r\n  <button (click)=\"onClick()\" [disabled]=\"disabled\">{{text}}</button>\r\n\r\n  <button (click)=\"onCancel()\">Cancel</button>\r\n</div>\r\n"
+            "templateData": "<div class=\"button-container\" [ngStyle]=\"{'background-color': backgroundColor }\">\r\n  <button ejs-button cssClass=\"e-primary\" (click)=\"onClick()\" [disabled]=\"disabled\">{{text}}</button>\r\n\r\n  <button ejs-button cssClass=\"e-warning\" (click)=\"onCancel()\">Cancel</button>\r\n</div>\r\n"
         },
         {
             "name": "ReactComponentWrapperComponent",
-            "id": "component-ReactComponentWrapperComponent-863163bbd6245db1e68db7dd311b4f3a",
+            "id": "component-ReactComponentWrapperComponent-7b4d8be994e6dde62b266a9e66add490",
             "file": "projects/react-components/counter-component/ReactComponentWrapper.tsx",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -317,7 +396,7 @@
                     "decorators": [
                         {
                             "name": "ViewChild",
-                            "stringifiedArguments": "containerElementName, {static: false}"
+                            "stringifiedArguments": "containerElementName, {static: true}"
                         }
                     ]
                 }
@@ -405,11 +484,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import * as React from 'react';\r\nimport * as ReactDOM from 'react-dom';\r\n\r\nimport {\r\n  AfterViewInit,\r\n  Component,\r\n  ElementRef,\r\n  EventEmitter,\r\n  Input,\r\n  OnChanges,\r\n  OnDestroy,\r\n  Output,\r\n  SimpleChanges,\r\n  ViewChild,\r\n  ViewEncapsulation\r\n} from '@angular/core';\r\n\r\nimport { CounterComponent } from './CounterComponent';\r\n\r\nconst containerElementName = 'counterReactComponentContainer';\r\n\r\n@Component({\r\n  selector: 'app-counter-component',\r\n  template: `<span #${containerElementName}></span>`,\r\n  styleUrls: ['./CounterComponent.scss'],\r\n  encapsulation: ViewEncapsulation.None,\r\n})\r\nexport class ReactComponentWrapperComponent implements OnChanges, OnDestroy, AfterViewInit {\r\n  @ViewChild(containerElementName, {static: false}) containerRef: ElementRef;\r\n\r\n  @Input() public counter = 10;\r\n  @Output() public componentClick = new EventEmitter<void>();\r\n\r\n  constructor() {\r\n    this.handleDivClicked = this.handleDivClicked.bind(this);\r\n  }\r\n\r\n  public handleDivClicked() {\r\n    if (this.componentClick) {\r\n      this.componentClick.emit();\r\n      this.render();\r\n    }\r\n  }\r\n\r\n  ngOnChanges(changes: SimpleChanges): void {\r\n    this.render();\r\n  }\r\n\r\n  ngAfterViewInit() {\r\n    this.render();\r\n  }\r\n\r\n  ngOnDestroy() {\r\n    ReactDOM.unmountComponentAtNode(this.containerRef.nativeElement);\r\n  }\r\n\r\n  private render() {\r\n    const {counter} = this;\r\n\r\n    ReactDOM.render(<div className={'i-am-classy'}>\r\n      <CounterComponent counter={counter} onClick={this.handleDivClicked}/>\r\n    </div>, this.containerRef.nativeElement);\r\n  }\r\n}\r\n",
+            "sourceCode": "import * as React from 'react';\r\nimport * as ReactDOM from 'react-dom';\r\n\r\nimport {\r\n  AfterViewInit,\r\n  Component,\r\n  ElementRef,\r\n  EventEmitter,\r\n  Input,\r\n  OnChanges,\r\n  OnDestroy,\r\n  Output,\r\n  SimpleChanges,\r\n  ViewChild,\r\n  ViewEncapsulation\r\n} from '@angular/core';\r\n\r\nimport { CounterComponent } from './CounterComponent';\r\n\r\nconst containerElementName = 'counterReactComponentContainer';\r\n\r\n@Component({\r\n  selector: 'app-counter-component',\r\n  template: `<span #${containerElementName}></span>`,\r\n  styleUrls: ['./CounterComponent.scss'],\r\n  encapsulation: ViewEncapsulation.None,\r\n})\r\nexport class ReactComponentWrapperComponent implements OnChanges, OnDestroy, AfterViewInit {\r\n  @ViewChild(containerElementName, {static: true}) containerRef: ElementRef;\r\n\r\n  @Input() public counter = 10;\r\n  @Output() public componentClick = new EventEmitter<void>();\r\n\r\n  constructor() {\r\n    this.handleDivClicked = this.handleDivClicked.bind(this);\r\n  }\r\n\r\n  public handleDivClicked() {\r\n    if (this.componentClick) {\r\n      this.componentClick.emit();\r\n      this.render();\r\n    }\r\n  }\r\n\r\n  ngOnChanges(changes: SimpleChanges): void {\r\n    this.render();\r\n  }\r\n\r\n  ngAfterViewInit() {\r\n    this.render();\r\n  }\r\n\r\n  ngOnDestroy() {\r\n    ReactDOM.unmountComponentAtNode(this.containerRef.nativeElement);\r\n  }\r\n\r\n  private render() {\r\n    const {counter} = this;\r\n\r\n    ReactDOM.render(<div className={'i-am-classy'}>\r\n      <CounterComponent counter={counter} onClick={this.handleDivClicked}/>\r\n    </div>, this.containerRef.nativeElement);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "$border-radius: 4px;\r\n\r\n@mixin with-border($radius: $border-radius, $border-color: black) {\r\n  border: 1px solid $border-color;\r\n  border-radius: $radius;\r\n}\r\n\r\n.my-graph-component {\r\n  @include with-border($border-radius, blue);\r\n\r\n  filter: drop-shadow(2px 4px 6px black);\r\n  background-color: #1eb4d1;\r\n  border: 1px solid #198aa2;\r\n  display: inline-block;\r\n  user-select: none;\r\n  padding: 20px;\r\n\r\n  .comp-props {\r\n    color: white;\r\n\r\n    .increase-button {\r\n      @include with-border($border-radius, #3e3e3e);\r\n      background-color: white;\r\n      margin-left: 40px;\r\n      padding: 4px 6px;\r\n      cursor: pointer;\r\n      color: black;\r\n\r\n      &:hover {\r\n        filter: drop-shadow(2px 4px 6px black);\r\n      }\r\n    }\r\n  }\r\n\r\n  .comp-state {\r\n    color: yellow;\r\n    margin-top: 20px;\r\n  }\r\n}\r\n",
+                    "data": "\r\n\r\n.counter-component {\r\n  background-color: #1eb4d1;\r\n  border: 1px solid #198aa2;\r\n  display: inline-block;\r\n  user-select: none;\r\n  padding: 20px;\r\n  .comp-props {\r\n    color: white;\r\n    .increase-button {\r\n      background-color: white;\r\n      margin-left: 40px;\r\n      padding: 4px 6px;\r\n      cursor: pointer;\r\n      color: black;\r\n      &:hover {\r\n        filter: drop-shadow(2px 4px 6px black);\r\n      }\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./CounterComponent.scss"
                 }
             ],
@@ -430,7 +509,7 @@
         },
         {
             "name": "TaskComponent",
-            "id": "component-TaskComponent-e63b58dacf69b2da998239a6581d0e97",
+            "id": "component-TaskComponent-e6a5971f44236dadeaa57105c466b895",
             "file": "projects/web-todo-app/src/app/components/task/task.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -502,34 +581,13 @@
             "methodsClass": [
                 {
                     "name": "handleOnClick",
-                    "args": [
-                        {
-                            "name": "count",
-                            "type": "",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
+                    "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
                     "line": 31,
                     "deprecated": false,
-                    "deprecationMessage": "",
-                    "modifierKind": [
-                        122
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "count",
-                            "type": "",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
+                    "deprecationMessage": ""
                 },
                 {
                     "name": "onArchive",
@@ -572,7 +630,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 37,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -600,7 +658,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 42,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -651,7 +709,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\n\r\nimport { Task } from './task.model';\r\n\r\n@Component({\r\n  selector: 'app-task',\r\n  templateUrl: './task.component.html',\r\n  styleUrls: ['./task.component.scss'],\r\n})\r\nexport class TaskComponent {\r\n  @Input() task: Task = {id: '1', title: 'default', state: 'TASK_DEFAULT'}\r\n\r\n  public counter = 0;\r\n\r\n  tasks:Task[] = []\r\n\r\n  @Output()\r\n  onPinTask = new EventEmitter<Event>();\r\n\r\n  @Output()\r\n  onArchiveTask = new EventEmitter<Event>();\r\n\r\n  onPin(id: any) {\r\n    this.onPinTask.emit(id);\r\n  }\r\n\r\n  onArchive(id: any) {\r\n    this.onArchiveTask.emit(id);\r\n  }\r\n\r\n  public handleOnClick(count) {\r\n    console.log(count)\r\n    this.tasks.pop();\r\n    this.counter = this.tasks.length;\r\n  }\r\n\r\n  onClick(event:string) {\r\n    const task = {id: String(Math.random()), title: event, state: 'TASK_PINNED'}\r\n    this.tasks.push(task)\r\n    this.counter = this.tasks.length;\r\n  }\r\n\r\n  onKeyDownEvent(event) {\r\n    const task = {id: String(Math.random()), title: event.target.value, state: 'TASK_DEFAULT'}\r\n    this.tasks.push(task)\r\n    this.counter = this.tasks.length;\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\n\r\nimport { Task } from './task.model';\r\n\r\n@Component({\r\n  selector: 'app-task',\r\n  templateUrl: './task.component.html',\r\n  styleUrls: ['./task.component.scss'],\r\n})\r\nexport class TaskComponent {\r\n  @Input() task: Task = {id: '1', title: 'default', state: 'TASK_DEFAULT'}\r\n\r\n  public counter = 0;\r\n\r\n  tasks:Task[] = []\r\n\r\n  @Output()\r\n  onPinTask = new EventEmitter<Event>();\r\n\r\n  @Output()\r\n  onArchiveTask = new EventEmitter<Event>();\r\n\r\n  onPin(id: any) {\r\n    this.onPinTask.emit(id);\r\n  }\r\n\r\n  onArchive(id: any) {\r\n    this.onArchiveTask.emit(id);\r\n  }\r\n\r\n  handleOnClick() {\r\n    this.tasks.pop();\r\n    this.counter = this.tasks.length;\r\n  }\r\n\r\n  onClick(event:string) {\r\n    const task = {id: String(Math.random()), title: event, state: 'TASK_PINNED'}\r\n    this.tasks.push(task)\r\n    this.counter = this.tasks.length;\r\n  }\r\n\r\n  onKeyDownEvent(event) {\r\n    const task = {id: String(Math.random()), title: event.target.value, state: 'TASK_DEFAULT'}\r\n    this.tasks.push(task)\r\n    this.counter = this.tasks.length;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -660,7 +718,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"list-item {{ task?.state }}\">\r\n  <label class=\"checkbox\">\r\n    <input\r\n      type=\"checkbox\"\r\n      [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\r\n      name=\"checked\"\r\n    />\r\n    <span class=\"checkbox-custom\" (click)=\"onArchive(task.id)\"></span>\r\n  </label>\r\n  <div class=\"title\">\r\n    <input\r\n      type=\"text\"\r\n      [value]=\"task.title\"\r\n      placeholder=\"Input title\"\r\n      (keydown.enter)=\"onKeyDownEvent($event)\"\r\n    />\r\n  </div>\r\n  <div class=\"actions\">\r\n    <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\r\n      <span class=\"icon-star\"></span>\r\n    </a>\r\n  </div>\r\n</div>\r\n<div *ngFor=\"let item of tasks; index as i;\">\r\n  {{item.title}} {{item.state}}\r\n</div>\r\n<p>Number of tasks:</p>\r\n<app-counter-component [counter]=\"counter\" (componentClick)=\"handleOnClick($event)\"></app-counter-component>\r\n<ui-primary-button [backgroundColor]=\"'#ffd11a'\" (onClicked)=\"onClick($event)\" [disabled]=\"false\" [text]=\"'button'\"></ui-primary-button>\r\n\r\n"
+            "templateData": "<div class=\"list-item {{ task?.state }}\">\r\n  <label class=\"checkbox\">\r\n    <input\r\n      type=\"checkbox\"\r\n      [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\r\n      name=\"checked\"\r\n    />\r\n    <span class=\"checkbox-custom\" (click)=\"onArchive(task.id)\"></span>\r\n  </label>\r\n  <div class=\"title\">\r\n    <input\r\n      type=\"text\"\r\n      [value]=\"task.title\"\r\n      placeholder=\"Input title\"\r\n      (keydown.enter)=\"onKeyDownEvent($event)\"\r\n    />\r\n  </div>\r\n  <div class=\"actions\">\r\n    <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\r\n      <span class=\"icon-star\"></span>\r\n    </a>\r\n  </div>\r\n</div>\r\n<div *ngFor=\"let item of tasks; index as i;\">\r\n  {{item.title}} {{item.state}}\r\n</div>\r\n<app-counter-component [counter]=\"counter\" (componentClick)=\"handleOnClick()\"></app-counter-component>\r\n<ui-primary-button [backgroundColor]=\"'#ffd11a'\" (onClicked)=\"onClick($event)\" [disabled]=\"false\" [text]=\"'button'\"></ui-primary-button>\r\n\r\n"
         }
     ],
     "modules": [
@@ -759,13 +817,13 @@
         },
         {
             "name": "PrimaryButtonModule",
-            "id": "module-PrimaryButtonModule-cb05f7201acff7f8532f5d8b9023c15e",
+            "id": "module-PrimaryButtonModule-97bfc84666b6ec64ae9ed26ddb2de9e2",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/primary-button/src/lib/primary-button.module.ts",
             "methods": [],
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { NgModule } from '@angular/core';\nimport { PrimaryButtonComponent } from './primary-button.component';\n\n@NgModule({\n  declarations: [PrimaryButtonComponent],\n  imports: [\n    CommonModule\n  ],\n  exports: [PrimaryButtonComponent]\n})\nexport class PrimaryButtonModule { }\n",
+            "sourceCode": "import { ButtonModule } from '@syncfusion/ej2-angular-buttons';\nimport { CommonModule } from '@angular/common';\nimport { NgModule } from '@angular/core';\nimport { PrimaryButtonComponent } from './primary-button.component';\n\n@NgModule({\n  declarations: [PrimaryButtonComponent],\n  imports: [\n    CommonModule,\n    ButtonModule\n  ],\n  exports: [PrimaryButtonComponent]\n})\nexport class PrimaryButtonModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -788,6 +846,50 @@
                     "elements": [
                         {
                             "name": "PrimaryButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "UiCalendarModule",
+            "id": "module-UiCalendarModule-2826c4302d4235353a5524a40004e6ad",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/calendar/src/lib/calendar.module.ts",
+            "methods": [],
+            "sourceCode": "import { CalendarModule, DatePickerModule } from '@syncfusion/ej2-angular-calendars'\n\nimport { CalendarComponent } from './calendar.component';\nimport { CommonModule } from '@angular/common';\nimport { NgModule } from '@angular/core';\n\n@NgModule({\n  declarations: [CalendarComponent],\n  imports: [CommonModule,\n    CalendarModule,\n    DatePickerModule\n  ],\n  exports: [CalendarComponent]\n})\nexport class UiCalendarModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "CalendarComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "CalendarComponent"
                         }
                     ]
                 },
@@ -838,6 +940,16 @@
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/calendar/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/primary-button/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -862,7 +974,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "FunctionComponent<IMyComponentProps>",
-                "defaultValue": "(props: IMyComponentProps) => {\r\n\r\n\r\n\r\n  const {counter: propsCounter, onClick} = props;\r\n\r\n  const handleClick = () => {\r\n    if (onClick) {\r\n      onClick();\r\n    }\r\n  };\r\n\r\n  return <div className={`my-graph-component`}>\r\n    <div className={'comp-props'}>Props counter: {propsCounter}\r\n      <span onClick={handleClick}\r\n            className={'increase-button'}>remove last one: </span>\r\n    </div>\r\n  </div>;\r\n}"
+                "defaultValue": "(props: IMyComponentProps) => {\r\n\r\n  const {counter: propsCounter, onClick} = props;\r\n\r\n  const handleClick = () => {\r\n    if (onClick) {\r\n      onClick();\r\n    }\r\n  };\r\n\r\n  return <div className={`counter-component`}>\r\n    <div className={'comp-props'}>Tasks counter: {propsCounter}\r\n      <span onClick={handleClick}\r\n            className={'increase-button'}>Remove last one</span>\r\n    </div>\r\n  </div>;\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Calendar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Default",
@@ -918,6 +1040,15 @@
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/calendar/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/primary-button/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -941,6 +1072,16 @@
                 "deprecationMessage": "",
                 "type": "Story<PrimaryButtonComponent>",
                 "defaultValue": "(args: PrimaryButtonComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Calendar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<CalendarComponent>",
+                "defaultValue": "args => ({\n  props: {\n    ...args\n  },\n})"
             },
             {
                 "name": "Template",
@@ -1021,6 +1162,27 @@
                     "defaultValue": "'counterReactComponentContainer'"
                 }
             ],
+            "projects/calendar/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/calendar/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/calendar/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
             "projects/primary-button/src/test.ts": [
                 {
                     "name": "context",
@@ -1072,7 +1234,29 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "FunctionComponent<IMyComponentProps>",
-                    "defaultValue": "(props: IMyComponentProps) => {\r\n\r\n\r\n\r\n  const {counter: propsCounter, onClick} = props;\r\n\r\n  const handleClick = () => {\r\n    if (onClick) {\r\n      onClick();\r\n    }\r\n  };\r\n\r\n  return <div className={`my-graph-component`}>\r\n    <div className={'comp-props'}>Props counter: {propsCounter}\r\n      <span onClick={handleClick}\r\n            className={'increase-button'}>remove last one: </span>\r\n    </div>\r\n  </div>;\r\n}"
+                    "defaultValue": "(props: IMyComponentProps) => {\r\n\r\n  const {counter: propsCounter, onClick} = props;\r\n\r\n  const handleClick = () => {\r\n    if (onClick) {\r\n      onClick();\r\n    }\r\n  };\r\n\r\n  return <div className={`counter-component`}>\r\n    <div className={'comp-props'}>Tasks counter: {propsCounter}\r\n      <span onClick={handleClick}\r\n            className={'increase-button'}>Remove last one</span>\r\n    </div>\r\n  </div>;\r\n}"
+                }
+            ],
+            "stories/Calendar.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Calendar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Calendar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<CalendarComponent>",
+                    "defaultValue": "args => ({\n  props: {\n    ...args\n  },\n})"
                 }
             ],
             "projects/web-todo-app/src/environments/environment.prod.ts": [
@@ -1144,6 +1328,44 @@
         "count": 0,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/calendar/src/lib/calendar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CalendarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/calendar/src/lib/calendar.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "CalendarService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/calendar/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/calendar/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
             {
                 "filePath": "projects/primary-button/src/lib/primary-button.component.ts",
                 "type": "component",
@@ -1299,6 +1521,26 @@
             },
             {
                 "filePath": "stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Calendar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Calendar.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

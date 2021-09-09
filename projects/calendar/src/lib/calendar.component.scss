@@ -1,0 +1,40 @@
+.data-picker-container {
+  .predefined-fields-container {
+    width: 100%;
+    border: none;
+    z-index: 1000;
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    padding-left: 15px;
+    img {
+      margin-right: 5px;
+    }
+    .e-float-input .e-clear-icon::before,
+    .e-float-input.e-control-wrapper .e-clear-icon::before,
+    .e-input-group .e-clear-icon::before,
+    .e-input-group.e-control-wrapper .e-clear-icon::before {
+      font-size: 12px;
+    }
+  }
+  .e-calendar,
+  .e-lib .e-keyboard {
+    max-width: 100%;
+  }
+  .calculatedDate {
+    float: right;
+    color: silver;
+    text-transform: capitalize;
+  }
+}
+.data-picker-container.e-datepicker.e-popup-wrapper {
+  top: 349.5px;
+  position: fixed;
+  z-index: 1004;
+  width: 20%;
+  height: auto;
+  background-color: white;
+  .calendar-predefined-fields {
+    padding: 0 17px 17px 17px;
+  }
+}

@@ -11,8 +11,6 @@ export interface IMyComponentProps {
 
 export const CounterComponent: FunctionComponent<IMyComponentProps> = (props: IMyComponentProps) => {
 
-
-
   const {counter: propsCounter, onClick} = props;
 
   const handleClick = () => {
@@ -21,7 +19,7 @@ export const CounterComponent: FunctionComponent<IMyComponentProps> = (props: IM
     }
   };
 
-  return <div className={`my-graph-component`}>
+  return <div className={`counter-component`}>
     <div className={'comp-props'}>Tasks counter: {propsCounter}
       <span onClick={handleClick}
             className={'increase-button'}>Remove last one</span>

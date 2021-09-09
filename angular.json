@@ -68,7 +68,8 @@
               "projects/web-todo-app/src/assets"
             ],
             "styles": [
-              "projects/web-todo-app/src/styles.scss"
+              "projects/web-todo-app/src/styles.scss",
+              "./node_modules/@syncfusion/ej2/fabric.css"
             ],
             "scripts": []
           },
@@ -142,6 +143,46 @@
             "tsConfig": [
               "projects/web-todo-app/tsconfig.app.json",
               "projects/web-todo-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "calendar": {
+      "projectType": "library",
+      "root": "projects/calendar",
+      "sourceRoot": "projects/calendar/src",
+      "prefix": "ui",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/calendar/tsconfig.lib.json",
+            "project": "projects/calendar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/calendar/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/calendar/src/test.ts",
+            "tsConfig": "projects/calendar/tsconfig.spec.json",
+            "karmaConfig": "projects/calendar/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/calendar/tsconfig.lib.json",
+              "projects/calendar/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

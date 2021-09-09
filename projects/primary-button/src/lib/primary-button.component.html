@@ -1,5 +1,4 @@
 <div class="button-container" [ngStyle]="{'background-color': backgroundColor }">
-  <button (click)="onClick()" [disabled]="disabled">{{text}}</button>
-
-  <button (click)="onCancel()">Cancel</button>
+  <button ejs-button cssClass="e-primary" (click)="onClick()" [disabled]="disabled">{{text}}</button>
+  <button ejs-button cssClass="e-warning" (click)="onCancel()">Cancel</button>
 </div>
